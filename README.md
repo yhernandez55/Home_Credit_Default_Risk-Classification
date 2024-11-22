@@ -4,8 +4,8 @@
 This project aims to predict clients' repayment abilities using supervised learning techniques, including neural networks and xgboostclassifier.
 
 ## DataSet Info(i.e: list all datasets):
-The datasets used in this project can be accessed from this repository in a folder called Data or through the following link:
-<a href="[https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data](https://www.kaggle.com/competitions/home-credit-default-risk/data)" target="_blank"> Here are the DataSets</a>
+The datasets used in this project can be accessed from this repository in a folder called Data or through the following link: [Here are the DataSets](https://www.kaggle.com/competitions/home-credit-default-risk/data)
+
 
 
 ## Techniques Used:
