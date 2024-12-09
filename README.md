@@ -7,7 +7,7 @@ This project focused on predicting clients' repayment abilities using machine le
 
 ## DataSet Info(i.e: list all datasets):
 
-The datasets for this project are available in the Data folder of this repository or can be accessed through the [link](https://www.kaggle.com/competitions/home-credit-default-risk/data)
+The datasets for this project are available in the Data folder of this repository or can be accessed through the [link](https://www.kaggle.com/competitions/home-credit-default-risk/data) and in this repository here: [Download the data files](https://drive.google.com/drive/folders/1ZqFZP5VKpqYrKUJ4s1B3fvJL3aaKQF5H?usp=sharing)
 
 Key tables included:
 
