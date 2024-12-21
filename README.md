@@ -1,8 +1,8 @@
-# Home_Credit_Default_Risk-Classification
+<img width="706" alt="Screenshot 2024-12-21 at 12 34 32 PM" src="https://github.com/user-attachments/assets/87fd79f9-ab1b-4eed-a334-b63c5726f212" /># Home_Credit_Default_Risk-Classification
 
 ## Summary:
 
-This project focused on predicting clients' repayment abilities using machine learning techniques, including Neural Networks and XGBoost. By comparing the performance of these models based on the AUC metric, Neural Networks demonstrated superior predictive capability. The validation data aligned closely with predictions on the test set, indicating the model's ability to generalize well. Consistent training and validation losses confirmed the reliability of the model and minimized concerns about noise or overfitting. Overall, Neural Networks proved to be the most efficient and accurate choice for this classification problem.
+This project focused on predicting clients' repayment abilities using machine learning techniques, including Neural Networks and XGBoost. By comparing the performance of these models based on the AUC metrics and the classification report, XGBOOST demonstrated superior predictive capability. The validation data aligned closely with predictions on the test set, indicating the model's ability to generalize well. Consistent training  confirmed the model's reliability and minimized concerns about noise or overfitting. Overall, XGBOOST was the most efficient and accurate choice for this classification problem.
 
 
 ## DataSet Info(i.e: list all datasets):
@@ -26,7 +26,7 @@ Key tables included:
 - Preprocessing: Missing values were handled, and categorical features were encoded using modular preprocessing scripts, ensuring reusability and efficiency.
 - Memory Optimization: A custom function reduced DataFrame sizes to handle large datasets without kernel crashes.
 - Feature Engineering: Exploratory Data Analysis (EDA) informed feature selection and dimensionality reduction.
-- Model Comparisons: Multiple variations of Neural Networks and XGBoost models were tested to identify the best configuration.
+- Model Comparisons: Multiple Neural Networks and XGBoost model variations were tested to identify the best configuration.
 - Consistent Test Set Preparation: Identical preprocessing was applied to both training and test sets to maintain consistency and prevent data leakage.
 
 
@@ -71,14 +71,13 @@ Key tables included:
 
 The models were evaluated using the AUC-ROC metric, which measures the relationship between predicted probabilities and observed outcomes.
 
-
 ## Results + Conclusion:
 
 The image below shows the AUC score on kaggle:
 
-![score](/var/folders/6j/3l6q9l4515sdmfyg8znhblxr0000gn/T/TemporaryItems/NSIRD_screencaptureui_WJqWgA/Screenshot 2024-11-27 at 9.36.44 PM.png)
+<img width="706" alt="Screenshot 2024-12-21 at 12 35 17 PM" src="https://github.com/user-attachments/assets/691a43f5-53a5-4047-a88b-264d69e3dbf2" />
 
 Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
 
-Ultimately, Neural Networks outperformed XGBoost, offering the most accurate and efficient predictions. This makes it a reliable choice for evaluating repayment risks.
+Ultimately, XGBoost outperformed Neural Networks, offering the most accurate and efficient predictions based on the auc and the classification report. This makes it a reliable choice for evaluating repayment risks.
 
