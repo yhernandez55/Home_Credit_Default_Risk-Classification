@@ -1,4 +1,4 @@
-<img width="706" alt="Screenshot 2024-12-21 at 12 34 32 PM" src="https://github.com/user-attachments/assets/87fd79f9-ab1b-4eed-a334-b63c5726f212" /># Home_Credit_Default_Risk-Classification
+# Home_Credit_Default_Risk-Classification
 
 ## Summary:
 
@@ -23,17 +23,21 @@ Key tables included:
 ## Techniques Used:
 
 - Data Visualizations: Heatmaps and other visuals were used to explore feature correlations and compare loss vs. validation loss across models.
+- Feature Engineering: Exploratory Data Analysis (EDA) informed feature selection and dimensionality reduction.
+[EDA Notebook](HomeCredit_EDA_class.ipynb)
+
 - Preprocessing: Missing values were handled, and categorical features were encoded using modular preprocessing scripts, ensuring reusability and efficiency.
 - Memory Optimization: A custom function reduced DataFrame sizes to handle large datasets without kernel crashes.
-- Feature Engineering: Exploratory Data Analysis (EDA) informed feature selection and dimensionality reduction.
+[preprocessed py file](preprocessed_DataClass.py)
+
 - Model Comparisons: Multiple Neural Networks and XGBoost model variations were tested to identify the best configuration.
 - Consistent Test Set Preparation: Identical preprocessing was applied to both training and test sets to maintain consistency and prevent data leakage.
-
+[]()
 
 ## Features:
 
 1. application_train/ application_test 
-    - features selected for theses both tables were: 
+    - features selected for these both tables were: 
     ORGANIZATION_TYPE, EXT_SOURCE_2, AMT_CREDIT, NAME_EDUCATION_TYPE, DAYS_BIRTH,        DAYS_EMPLOYED, AMT_ANNUITY, NAME_INCOME_TYPE, TARGET, SK_ID_CURR,          NAME_CONTRACT_TYPE, OCCUPATION_TYPE, AMT_INCOME_TOTAL, EXT_SOURCE_3,        NAME_HOUSING_TYPE, NAME_FAMILY_STATUS   
 
 2. bureau 
@@ -79,5 +83,5 @@ The image below shows the AUC score on kaggle:
 
 Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
 
-Ultimately, XGBoost outperformed Neural Networks, offering the most accurate and efficient predictions based on the auc and the classification report. This makes it a reliable choice for evaluating repayment risks.
+Ultimately, XGBoost outperformed Neural Networks, offering the most accurate and efficient predictions based on the AUC and the classification report. This makes it a reliable choice for evaluating repayment risks.
 
