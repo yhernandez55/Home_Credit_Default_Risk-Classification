@@ -1,8 +1,14 @@
 # Home_Credit_Default_Risk-Classification
 
+
 ## Summary:
 
-This project focused on predicting clients' repayment abilities using machine learning techniques, including Neural Networks and XGBoost. By comparing the performance of these models based on the AUC metric, Neural Networks demonstrated superior predictive capability. The validation data aligned closely with predictions on the test set, indicating the model's ability to generalize well. Consistent training and validation losses confirmed the reliability of the model and minimized concerns about noise or overfitting. Overall, Neural Networks proved to be the most efficient and accurate choice for this classification problem.
+This project aimed to predict clients' loan repayment abilities using machine learning, focusing on Neural Networks and XGBoost. Evaluation centered on the AUC metric, complemented by precision, recall, and F1-scores for a comprehensive assessment. Due to the heavily imbalanced target variable—more non-defaults (0) than defaults (1)—special attention was given to recall for class 1, prioritizing the identification of likely defaulters.
+
+XGBoost outperformed Neural Networks, achieving a validation AUC of 
+
+and a recall of 69%
+ for defaulters (class 1), compared to Neural Networks' 1% recall. The focus on AUC was crucial, given its importance in ranking predictions for imbalanced datasets. Class imbalance was addressed by setting scale_pos_weight to the ratio of non-defaults to defaults (len(ytrain[ytrain == 0]) / len(ytrain[ytrain == 1])) when defining the model.
 
 
 ## DataSet Info(i.e: list all datasets):
@@ -34,18 +40,20 @@ Key tables included:
 
 1. application_train/ application_test 
     - features selected for theses both tables were: 
-    ORGANIZATION_TYPE, EXT_SOURCE_2, AMT_CREDIT, NAME_EDUCATION_TYPE, DAYS_BIRTH,        DAYS_EMPLOYED, AMT_ANNUITY, NAME_INCOME_TYPE, TARGET, SK_ID_CURR,          NAME_CONTRACT_TYPE, OCCUPATION_TYPE, AMT_INCOME_TOTAL, EXT_SOURCE_3,        NAME_HOUSING_TYPE, NAME_FAMILY_STATUS   
+    'EXT_SOURCE_3', 'NAME_FAMILY_STATUS', 'AMT_INCOME_TOTAL',   'NAME_INCOME_TYPE', 'AMT_CREDIT', 'NAME_CONTRACT_TYPE',   
+    'OCCUPATION_TYPE', 'SK_ID_CURR', 'ORGANIZATION_TYPE',     'NAME_HOUSING_TYPE', 'DAYS_EMPLOYED', 'EXT_SOURCE_2',         'TARGET', 'DAYS_BIRTH', 'NAME_EDUCATION_TYPE', 'AMT_ANNUITY'.          
+
 
 2. bureau 
     - Key features included: 'SK_ID_CURR','SK_ID_BUREAU', 'CREDIT_ACTIVE', 'DAYS_CREDIT', 'DAYS_CREDIT_ENDDATE', 'AMT_CREDIT_SUM','DAYS_CREDIT_UPDATE', 'CREDIT_DAY_OVERDUE', 'CREDIT_TYPE'
     - Engineering Features: bureau['DEFAULT_RATE'] = bureau['CREDIT_DAY_OVERDUE'] / (bureau['AMT_CREDIT_SUM'] + 1e-5)
 
 3. bureau_balance 
-    - Key features included: ' SK_ID_BUREAU', 'MONTHS_BALANCE ', 'STATUS'
+    - Key features included: 'SK_ID_BUREAU', 'MONTHS_BALANCE ', 'STATUS'
     - Engineering Features: none.
 
 4. POS_CASH_balance 
-    - Key features included:  'MONTHS_BALANCE', 'CNT_INSTALMENT','CNT_INSTALMENT_FUTURE', 'SK_DPD_DEF', 'NAME_CONTRACT_STATUS'
+    - Key features included: 'SK_ID_CURR' , 'MONTHS_BALANCE', 'CNT_INSTALMENT','CNT_INSTALMENT_FUTURE', 'SK_DPD_DEF', 'NAME_CONTRACT_STATUS'
     - Engineering Features: POS_CASH_balance['INSTALMENT_RATIO'] = POS_CASH_balance['CNT_INSTALMENT'] / (POS_CASH_balance['CNT_INSTALMENT_FUTURE'] + 1e-5)
 
 5. credit_card_balance
@@ -61,7 +69,7 @@ Key tables included:
     - Engineering Features: none
 
 8. Merged_df/merged_test (i.e: merged train and test)
-    - Key features included: a left merge on all tables specifically the aggregated features from the notebook. 
+    - Key features included: a left merge on all tables specifically the aggregated features from the notebook. (i.e once finished add link to notebook)
     - Engineering Features: merged_df['CREDIT_INCOME_RATIO'], 
     merged_df['ANNUITY_CREDIT_RATIO'], merged_df['ANNUITY_INCOME_RATIO'],
     merged_df['EXT_SOURCE_COMBINATION']
@@ -72,13 +80,12 @@ Key tables included:
 The models were evaluated using the AUC-ROC metric, which measures the relationship between predicted probabilities and observed outcomes.
 
 
-## Results + Conclusion:
+## Conclusion:
 
 The image below shows the AUC score on kaggle:
 
-![score](/var/folders/6j/3l6q9l4515sdmfyg8znhblxr0000gn/T/TemporaryItems/NSIRD_screencaptureui_WJqWgA/Screenshot 2024-11-27 at 9.36.44 PM.png)
 
 Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
 
-Ultimately, Neural Networks outperformed XGBoost, offering the most accurate and efficient predictions. This makes it a reliable choice for evaluating repayment risks.
+Ultimately, XGBOOST outperformed Neural Networks, offering the most accurate and efficient predictions. This makes it a reliable choice for evaluating repayment risks.
 
