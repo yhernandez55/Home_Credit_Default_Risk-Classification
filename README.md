@@ -1,4 +1,4 @@
-# Home_Credit_Default_Risk-Classification
+<img width="706" alt="Screenshot 2024-12-21 at 9 23 20 PM" src="https://github.com/user-attachments/assets/f13f6711-3c6b-4cfe-83ff-2faab352b783" /># Home_Credit_Default_Risk-Classification
 
 
 ## Summary:
@@ -81,7 +81,8 @@ The models were evaluated using the AUC-ROC metric, which measures the relations
 ## Conclusion:
 
 The image below shows the AUC score on kaggle:
-![Uploading Screenshot 2024-12-21 at 9.23.20 PM.png…](score)
+<img width="706" alt="Screenshot 2024-12-21 at 9 34 41 PM" src="https://github.com/user-attachments/assets/5d475f28-4023-4f43-af09-5e97f51b08b1" />
+
 
 Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
 
