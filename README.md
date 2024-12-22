@@ -2,17 +2,7 @@
 
 
 ## Summary:
-
-<<<<<<< HEAD
-This project aimed to predict clients' loan repayment abilities using machine learning, focusing on Neural Networks and XGBoost. Evaluation centered on the AUC metric, complemented by precision, recall, and F1-scores for a comprehensive assessment. Due to the heavily imbalanced target variable—more non-defaults (0) than defaults (1)—special attention was given to recall for class 1, prioritizing the identification of likely defaulters.
-
-XGBoost outperformed Neural Networks, achieving a validation AUC of 
-
-and a recall of 69%
- for defaulters (class 1), compared to Neural Networks' 1% recall. The focus on AUC was crucial, given its importance in ranking predictions for imbalanced datasets. Class imbalance was addressed by setting scale_pos_weight to the ratio of non-defaults to defaults (len(ytrain[ytrain == 0]) / len(ytrain[ytrain == 1])) when defining the model.
-=======
 This project focused on predicting clients' repayment abilities using machine learning techniques, including Neural Networks and XGBoost. By comparing the performance of these models based on the AUC metrics and the classification report, XGBOOST demonstrated superior predictive capability. The validation data aligned closely with predictions on the test set, indicating the model's ability to generalize well. Consistent training  confirmed the model's reliability and minimized concerns about noise or overfitting. Overall, XGBOOST was the most efficient and accurate choice for this classification problem.
->>>>>>> 8b85ccdadb8a1e0b126566f63708f66ba22a5001
 
 
 ## DataSet Info(i.e: list all datasets):
@@ -38,24 +28,19 @@ Key tables included:
 
 - Preprocessing: Missing values were handled, and categorical features were encoded using modular preprocessing scripts, ensuring reusability and efficiency.
 - Memory Optimization: A custom function reduced DataFrame sizes to handle large datasets without kernel crashes.
+- Consistent Test Set Preparation: Identical preprocessing was applied to both training and test sets to maintain consistency and prevent data leakage.
 [preprocessed py file](preprocessed_DataClass.py)
 
-- Model Comparisons: Multiple Neural Networks and XGBoost model variations were tested to identify the best configuration.
-- Consistent Test Set Preparation: Identical preprocessing was applied to both training and test sets to maintain consistency and prevent data leakage.
-[]()
+- Model Comparisons: Multiple Neural Networks and XGBoost model variations were tested to identify the best configuration. 
+[Model_Notebook](Home-Credit-XGB-Main.ipynb)
+
 
 ## Features:
 
 1. application_train/ application_test 
-<<<<<<< HEAD
     - features selected for theses both tables were: 
     'EXT_SOURCE_3', 'NAME_FAMILY_STATUS', 'AMT_INCOME_TOTAL',   'NAME_INCOME_TYPE', 'AMT_CREDIT', 'NAME_CONTRACT_TYPE',   
     'OCCUPATION_TYPE', 'SK_ID_CURR', 'ORGANIZATION_TYPE',     'NAME_HOUSING_TYPE', 'DAYS_EMPLOYED', 'EXT_SOURCE_2',         'TARGET', 'DAYS_BIRTH', 'NAME_EDUCATION_TYPE', 'AMT_ANNUITY'.          
-
-=======
-    - features selected for these both tables were: 
-    ORGANIZATION_TYPE, EXT_SOURCE_2, AMT_CREDIT, NAME_EDUCATION_TYPE, DAYS_BIRTH,        DAYS_EMPLOYED, AMT_ANNUITY, NAME_INCOME_TYPE, TARGET, SK_ID_CURR,          NAME_CONTRACT_TYPE, OCCUPATION_TYPE, AMT_INCOME_TOTAL, EXT_SOURCE_3,        NAME_HOUSING_TYPE, NAME_FAMILY_STATUS   
->>>>>>> 8b85ccdadb8a1e0b126566f63708f66ba22a5001
 
 2. bureau 
     - Key features included: 'SK_ID_CURR','SK_ID_BUREAU', 'CREDIT_ACTIVE', 'DAYS_CREDIT', 'DAYS_CREDIT_ENDDATE', 'AMT_CREDIT_SUM','DAYS_CREDIT_UPDATE', 'CREDIT_DAY_OVERDUE', 'CREDIT_TYPE'
@@ -92,25 +77,13 @@ Key tables included:
 
 The models were evaluated using the AUC-ROC metric, which measures the relationship between predicted probabilities and observed outcomes.
 
-<<<<<<< HEAD
 
 ## Conclusion:
 
 The image below shows the AUC score on kaggle:
-
+![score](Screenshot 2024-12-21 at 9.23.20 PM.png)
 
 Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
 
 Ultimately, XGBOOST outperformed Neural Networks, offering the most accurate and efficient predictions. This makes it a reliable choice for evaluating repayment risks.
-=======
-## Results + Conclusion:
-
-The image below shows the AUC score on kaggle:
-
-<img width="706" alt="Screenshot 2024-12-21 at 12 35 17 PM" src="https://github.com/user-attachments/assets/691a43f5-53a5-4047-a88b-264d69e3dbf2" />
-
-Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
-
-Ultimately, XGBoost outperformed Neural Networks, offering the most accurate and efficient predictions based on the AUC and the classification report. This makes it a reliable choice for evaluating repayment risks.
->>>>>>> 8b85ccdadb8a1e0b126566f63708f66ba22a5001
 
