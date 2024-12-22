@@ -81,7 +81,7 @@ The models were evaluated using the AUC-ROC metric, which measures the relations
 ## Conclusion:
 
 The image below shows the AUC score on kaggle:
-![score](Screenshot 2024-12-21 at 9.23.20 PM.png)
+/private/var/folders/6j/3l6q9l4515sdmfyg8znhblxr0000gn/T/TemporaryItems/NSIRD_screencaptureui_0y2oza/Screenshot 2024-12-21 at 9.23.20 PM.png
 
 Initially, merging all tables without feature reduction caused kernel crashes. To resolve this, an EDA identified and excluded less relevant features, particularly those with high percentages of missing values. Feature correlations were analyzed pre- and post-merging to optimize the dataset.
 
