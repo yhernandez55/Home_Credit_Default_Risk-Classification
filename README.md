@@ -1,4 +1,4 @@
-<img width="706" alt="Screenshot 2024-12-21 at 9 23 20 PM" src="https://github.com/user-attachments/assets/f13f6711-3c6b-4cfe-83ff-2faab352b783" /># Home_Credit_Default_Risk-Classification
+# Home_Credit_Default_Risk-Classification
 
 
 ## Summary:
