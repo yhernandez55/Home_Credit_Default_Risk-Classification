@@ -20,17 +20,17 @@ def handle_missing_values(df):
   for column in df.columns:
     if df[column].dtype == 'object':
       # For categorical columns, fill with the mode (most frequent value)
-      df[column] = df[column].fillna(df[column].mode()[0])
+      df.loc[:, column] = df[column].fillna(df[column].mode()[0])
     else:
       # For numerical columns, check for skewness
       if df[column].isnull().any():
         if df[column].isnull().sum() > len(df) / 2:  # More than half of values are null
           df = df.drop(column, axis=1)  # Drop the column
         elif abs(df[column].skew()) < 0.8:  # Use absolute value of skewness
-          df[column] = df[column].fillna(df[column].mean())
+          df.loc[:, column] = df[column].fillna(df[column].mean())
         else:
           # For skewed data, consider using median instead of mean
-          df[column] = df[column].fillna(df[column].median())
+          df.loc[:, column] = df[column].fillna(df[column].median())
   return df
 
 
@@ -109,24 +109,24 @@ def red_mem_usage(df):
       if is_int:
         if min >= 0:
           if max < 255:
-            df[col] = df[col].astype(np.uint8)
+            df.loc[:, col] = df[col].astype(np.uint8)
           elif max < 65535:
-            df[col] = df[col].astype(np.uint16)
+            df.loc[:, col] = df[col].astype(np.uint16)
           elif max < 4294967295:
-            df[col] = df[col].astype(np.uint32)
+            df.loc[:, col] = df[col].astype(np.uint32) 
           else:
-            df[col] = df[col].astype(np.uint64)
+            df.loc[:, col] = df[col].astype(np.uint64)
         else:
           if min > np.iinfo(np.int8).min and max < np.iinfo(np.int8).max:
-            df[col] = df[col].astype(np.int8)
+            df.loc[:, col] = df[col].astype(np.int8)
           elif min > np.iinfo(np.int16).min and max < np.iinfo(np.int16).max:
-            df[col] = df[col].astype(np.int16)     
+            df.loc[:, col] = df[col].astype(np.int16)     
           elif min > np.iinfo(np.int32).min and max < np.iinfo(np.int32).max:
-            df[col] = df[col].astype(np.int32)
+            df.loc[:, col] = df[col].astype(np.int32)
           elif min > np.iinfo(np.int64).min and max < np.iinfo(np.int64).max:
-            df[col] = df[col].astype(np.int64)  
+            df.loc[:, col] = df[col].astype(np.int64)  
       else:
-        df[col] = df[col].astype(np.float32)
+        df.loc[:, col] = df[col].astype(np.float32)
       
       print('data type after: ', df[col].dtype) # displaying the new data type
       print('--------------------------------')   
